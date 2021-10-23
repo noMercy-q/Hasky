@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href = "../css/bootstrap.css" rel = "stylesheet"/>
+        <link href = "{% '../css/bootstrap.css'%}" rel = "stylesheet"/>
         
-        <link href = "../css/base.css" rel = "stylesheet"/>
+        <link href = "{% '../css/base.css' %}" rel = "stylesheet"/>
         <title>hASKy</title>
     </head>
     <body>
@@ -13,7 +13,7 @@
             <nav class = "navbar navbar-expand-lg navbar-dark my-primary">
                 <div class = "container-fluid">
                 <a class = "navbar-brand" href="#">
-                    <img src = "../img/logo1.png" alt = "hasky" width = "70" height = "45"/>
+                    <img src = "{% 'img/logo1.png' %}" alt = "hasky" width = "70" height = "45"/>
                 </a>
                 <form action = "ask.html" class="d-flex">
                     <input class = "form-control me-2 searchBar" type = "search" placeholder = "Search..." aria-label = "Search" min-width = "300px"/>

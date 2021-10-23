@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class = "question">
+    <div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture.jpg' %}" alt = ""></a>
+        <div class = "likesDiv">
+            <button class = "btn btn-outline-dark">Like!</button>
+            
+            <span>5</span>
+        </div>
+    </div>   
+    <div class = "quesText">
+        <a href = "./question/" class = "blackRef"><h5>{{ question.title }}</h5></a>
+        <p> {{ question.body }}</p>
+
+        <div class = "anTags">
+            <div><a href = "question.html" class = "blackRef2">Answers(3)</a></div>
+            <div>Tags: <a class = "blackRef">#really</a><a class = "blackRef">#why?</a></div>
+        </div>
+    </div>
+</div> 
