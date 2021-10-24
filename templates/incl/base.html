@@ -14,10 +14,10 @@
         <header>
             <nav class = "navbar navbar-expand-lg navbar-dark my-primary">
                 <div class = "container-fluid">
-                <a class = "navbar-brand" href="..">
+                <a class = "navbar-brand" href="{% url  'new' %}">
                     <img src = "{% static 'img/logo1.png' %}" alt = "hasky" width = "70" height="45"/>
                 </a>
-                <form action = "ask.html" class="d-flex">
+                <form action = "{% url 'ask' %}" class="d-flex">
                     <input class = "form-control me-2 searchBar" type = "search" placeholder = "Search..." aria-label = "Search" min-width = "300px"/>
                     <button class = "btn btn-outline-light searchButton">Find</button>
                     <button id = "hask" class = "btn btn-light searchButton" type = "submit">h'ASK!</button>
@@ -25,10 +25,10 @@
                   </form>
                 <ul class = "navbar-nav mr-auto">
                     <li class = "nav-item active">
-                        <a class = "nav-link" href = "./login">Log in</a>
+                        <a class = "nav-link" href = "{% url 'login' %}">Log in</a>
                     </li>
                     <li class="nav-item">
-                        <a class = "nav-link" href = "./signup">Sign up</a>
+                        <a class = "nav-link" href = "{% url 'signup' %}">Sign up</a>
                     </li>
                 </ul>
                   </div>
@@ -63,9 +63,9 @@
                         <ol class = "topList blackRef2">
                             <a href = "#" ><li>Maxim Kirillov</li></a>
                             <a href = "#"><li>Ilya Shluzhas</li></a>
+                            <a href = "#"><li>Dmitry Rudnev</li></a>
+                            <a href = "#" ><li>Dinar Sabitov</li></a>
                             <a href = "#"><li>Michael Chichunov</li></a>
-                            <a href = "#" ><li>Maxim Kirillov</li></a>
-                            <a href = "#"><li>Ilya Shluzhas</li></a>
                         </ol>
                     </div>
                 </div>

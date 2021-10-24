@@ -3,7 +3,7 @@
 
 {% block content %}
         
-                <h3 class = "title">New questions <h5 class = "title"><a href = "{% url 'hot' %}" class = "blackRef">Popular questions</a></h5></h3>
+                <h3 class = "title">Popular questions <h5 class = "title"><a href = "{% url 'new' %}" class = "blackRef">New questions</a></h5></h3>
                 
                 {% for question in questions %}
                     {% include "incl/singleQ.html" %}

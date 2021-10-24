@@ -5,15 +5,15 @@
         <div class = "likesDiv">
             <button class = "btn btn-outline-dark">Like!</button>
             
-            <span>5</span>
+            <span> {{ question.likes }}</span>
         </div>
     </div>   
     <div class = "quesText">
-        <a href = "./question/" class = "blackRef"><h5>{{ question.title }}</h5></a>
+        <a href = "{% url 'question' %}" class = "blackRef"><h5>{{ question.title }}</h5></a>
         <p> {{ question.body }}</p>
 
         <div class = "anTags">
-            <div><a href = "question.html" class = "blackRef2">Answers(3)</a></div>
+            <div><a href = "{% url 'question' %}" class = "blackRef2">Answers(3)</a></div>
             <div>Tags: <a class = "blackRef">#really</a><a class = "blackRef">#why?</a></div>
         </div>
     </div>
