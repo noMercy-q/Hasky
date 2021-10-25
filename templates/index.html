@@ -2,19 +2,13 @@
 {% load static %}
 
 {% block content %}
-        
-                <h3 class = "title">New questions <h5 class = "title"><a href = "{% url 'hot' %}" class = "blackRef">Popular questions</a></h5></h3>
-                
-                {% for question in questions %}
-                    {% include "incl/singleQ.html" %}
-                {% endfor %}
 
-                <div class = "paginator">
-                    <button class = "btn btn-outline-dark">1</button>
-                    <button class = "btn btn-outline-dark">2</button>
-                    <button class = "btn btn-outline-dark">3</button>
-                    <button class = "btn btn-outline-dark">4</button>
-                    <button class = "btn btn-outline-dark">&gt;&gt;</button>
-                </div>
+    <h3 class = "title">New questions <h5 class = "title"><a href = "{% url 'hot' %}" class = "blackRef">Popular questions</a></h5></h3>
+    
+    {% for question in questions %}
+        {% include "incl/singleQ.html" %}
+    {% endfor %}
 
+    {% include 'incl/paginationQ.html' %}
+    
 {% endblock content %}

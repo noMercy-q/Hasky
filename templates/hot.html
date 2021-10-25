@@ -3,18 +3,12 @@
 
 {% block content %}
         
-                <h3 class = "title">Popular questions <h5 class = "title"><a href = "{% url 'new' %}" class = "blackRef">New questions</a></h5></h3>
-                
-                {% for question in questions %}
-                    {% include "incl/singleQ.html" %}
-                {% endfor %}
+    <h3 class = "title">Popular questions <h5 class = "title"><a href = "{% url 'new' %}" class = "blackRef">New questions</a></h5></h3>
+    
+    {% for question in questions %}
+        {% include "incl/singleQ.html" %}
+    {% endfor %}
 
-                <div class = "paginator">
-                    <button class = "btn btn-outline-dark">1</button>
-                    <button class = "btn btn-outline-dark">2</button>
-                    <button class = "btn btn-outline-dark">3</button>
-                    <button class = "btn btn-outline-dark">4</button>
-                    <button class = "btn btn-outline-dark">&gt;&gt;</button>
-                </div>
-
+    {% include 'incl/paginationQ.html' %}
+    
 {% endblock content %}

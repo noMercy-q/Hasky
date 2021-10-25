@@ -2,38 +2,39 @@
 {% load static %}
 
 {% block content %}
-                    <h3>Create a new account</h3>
-                    <div class = "loginDiv">
-                        <form>
-                            <div class="mb-3">
-                                <div class = "mb-3">
-                                    <label for="newEmail" class="form-label">Email address</label>
-                                    <input type="email" required class="form-control" id="newEmail" aria-describedby="emailHelp"/>
-                                </div>
-                                <div class = "mb-3">
-                                    <label for = "nick" class = "form-label">Nickname</label>
-                                    <input type = "text" required class = "form-control is-invalid" id = "nick"/>
-                                    <div class = "invalid-feedback">This nick is already occupied :(</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="newPassword" class="form-label">Password</label>
-                                    <input type="password" required class="form-control" id="newPassword">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="repPassword" class="form-label">Repeat your password</label>
-                                    <input type="password" required class="form-control is-invalid" id="Password"/>
-                                    <div class = "invalid-feedback">Passwords do not match!</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="avatar" class="form-label">Select profile picture</label>
-                                    <input class="form-control" accept = "image/*" type="file" id="avatar">
-                                  </div>
-                                <div class = "twoBut">
-                                    <button type="submit" class="btn btn-dark">Submit</button>
-                                    <button class = "btn btn-outline-dark signupBtn" href = "{% url 'login' %}">Log in instead</button>
-                                </div>
-                            </div>
-                        </form>
+
+    <h3>Create a new account</h3>
+    <div class = "loginDiv">
+        <form>
+            <div class="mb-3">
+                <div class = "mb-3">
+                    <label for="newEmail" class="form-label">Email address</label>
+                    <input type="email" required class="form-control" id="newEmail" aria-describedby="emailHelp"/>
+                </div>
+                <div class = "mb-3">
+                    <label for = "nick" class = "form-label">Nickname</label>
+                    <input type = "text" required class = "form-control is-invalid" id = "nick"/>
+                    <div class = "invalid-feedback">This nick is already occupied :(</div>
+                </div>
+                <div class="mb-3">
+                    <label for="newPassword" class="form-label">Password</label>
+                    <input type="password" required class="form-control" id="newPassword">
+                </div>
+                <div class="mb-3">
+                    <label for="repPassword" class="form-label">Repeat your password</label>
+                    <input type="password" required class="form-control is-invalid" id="Password"/>
+                    <div class = "invalid-feedback">Passwords do not match!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="avatar" class="form-label">Select profile picture</label>
+                    <input class="form-control" accept = "image/*" type="file" id="avatar">
                     </div>
+                <div class = "twoBut">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button class = "btn btn-outline-dark signupBtn" href = "{% url 'login' %}">Log in instead</button>
+                </div>
+            </div>
+        </form>
+    </div>
               
 {% endblock content %}

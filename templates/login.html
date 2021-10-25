@@ -2,29 +2,30 @@
 {% load static %}
 
 {% block content %}
-                    <h3>Log In</h3>
-                    <div class = "loginDiv">
-                        <form>
-                            <div class = "mb-3">
-                            <div class="mb-3">
-                              <label for="email" class="form-label">Email address</label>
-                              <input type="email" required class="form-control" id="email" aria-describedby="emailHelp">
-                              </div>
-                            <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
-                              <input type="password" required class="form-control is-invalid" id="password">
-                              <div class = "invalid-feedback">Incorrect password! Check if Caps Lock is off and try again</div>
-                            </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="remember">
-                              <label class="form-check-label" for="remember">Check me out</label>
-                            </div>
-                            <div class = "twoBut">
-                                <button type="submit" class="btn btn-dark">Submit</button>
-                                <button class = "btn btn-outline-dark signupBtn" href = "{% url 'signup' %}">Sign up</button>
-                            </div>
-                            </div>
-                        </form>
-                    </div>
+
+    <h3>Log In</h3>
+    <div class = "loginDiv">
+        <form>
+            <div class = "mb-3">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" required class="form-control" id="email" aria-describedby="emailHelp">
+              </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" required class="form-control is-invalid" id="password">
+              <div class = "invalid-feedback">Incorrect password! Check if Caps Lock is off and try again</div>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="remember">
+              <label class="form-check-label" for="remember">Check me out</label>
+            </div>
+            <div class = "twoBut">
+                <button type="submit" class="btn btn-dark">Submit</button>
+                <button class = "btn btn-outline-dark signupBtn" href = "{% url 'signup' %}">Sign up</button>
+            </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock content %}

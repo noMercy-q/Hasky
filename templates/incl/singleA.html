@@ -1,22 +1,22 @@
 {% load static %} 
  
-    <div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture1.jpg' %}" alt = ""></a>
-        <div class = "likesDiv">
-        <button class = "btn btn-outline-dark">Like!</button>
-        
-        <span>{{ answer.likes }}</span>
-        </div>
-    </div>   
-    <div class = "ansText">
-        <p>
-            {{ answer.body }}
-        </p>
+<div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture1.jpg' %}" alt = ""></a>
+    <div class = "likesDiv">
+    <button class = "btn btn-outline-dark">Like!</button>
+    
+    <span>{{ answer.likes }}</span>
+    </div>
+</div>   
+<div class = "ansText">
+    <p>
+        {{ answer.body }}
+    </p>
 
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                It's correct!
-            </label>
-        </div>
-        
-    </div>   
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            It's correct!
+        </label>
+    </div>
+    
+</div>   

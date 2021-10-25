@@ -2,52 +2,45 @@
 {% load static %}
 
 {% block content %}
+   
+    <div class = "question">
+        <div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture.jpg' %}" alt = ""></a>
+            <div class = "likesDiv">
+                <button class = "btn btn-outline-dark">Like!</button>
+                
+                <span>5</span>
+            </div>
+        </div>   
+        <div class = "quesText">
+            <a href = "question.html" class = "blackRef"><h5>Why did you name your site like "hASKy"??</h5></a>
+            <p>
+                full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description full description full description  full description  full description  full description  full description  full description  full description  full description </p>
 
-      
-                <div class = "question">
-                    <div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture.jpg' %}" alt = ""></a>
-                        <div class = "likesDiv">
-                            <button class = "btn btn-outline-dark">Like!</button>
-                            
-                            <span>5</span>
-                        </div>
-                    </div>   
-                    <div class = "quesText">
-                        <a href = "question.html" class = "blackRef"><h5>Why did you name your site like "hASKy"??</h5></a>
-                        <p>
-                            full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description  full description full description full description  full description  full description  full description  full description  full description  full description  full description </p>
+            <div class = "anTags">
+                <div>Tags: <a class = "blackRef">#really</a><a class = "blackRef">#why?</a></div>
+            </div>
+        </div>
 
-                        <div class = "anTags">
-                            <div>Tags: <a class = "blackRef">#really</a><a class = "blackRef">#why?</a></div>
-                        </div>
-                    </div>
+        
+    </div> 
+    <div class = "ansDiv">
+        <div class = "answer">
+            
+            {% for answer in answers%}
+                {% include "incl/singleA.html" %}
+            {% endfor %}
 
-                    
-                </div> 
-                <div class = "ansDiv">
-                    <div class = "answer">
-                        
-                        {% for answer in answers%}
-                            {% include "incl/singleA.html" %}
-                        {% endfor %}
+        </div>
+        
+        {% include 'incl/paginationA.html' %}
+        
+    </div>
 
-                    </div>
-                    
-                    <div class = "paginator">
-                        <button class = "btn btn-outline-dark">1</button>
-                        <button class = "btn btn-outline-dark">2</button>
-                        <button class = "btn btn-outline-dark">3</button>
-                        <button class = "btn btn-outline-dark">4</button>
-                        <button class = "btn btn-outline-dark">&gt;&gt;</button>
-                    </div>
-                </div>
-
-                <div class = "newAns">
-                    <form action = "#">
-                        <textarea placeholder = "Write your answer here..." type = "text"></textarea>
-                        <button class = "btn btn-outline-dark">Publish</button>
-                    </form>
-                </div>
-           
+    <div class = "newAns">
+        <form action = "#">
+            <textarea placeholder = "Write your answer here..." type = "text"></textarea>
+            <button class = "btn btn-outline-dark">Publish</button>
+        </form>
+    </div>
 
 {% endblock content %}
