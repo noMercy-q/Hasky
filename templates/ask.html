@@ -3,23 +3,23 @@
 
 {% block content %}
 
-                <h3>h'ASK a new question</h3>
-                <div class = "newQ">
-                    <h5 class = "">Title</h5>
-                    <form>
-                        <textarea class = "" type = "text" placeholder = "Your question shortly.."></textarea>
+    <h3>h'ASK a new question</h3>
+    <div class = "newQ">
+        <h5 class = "">Title</h5>
+        <form>
+            <textarea class = "" type = "text" placeholder = "Your question shortly.."></textarea>
 
-                        <h5>Body</h5>
-                        <textarea id = "big" type = "text" placeholder = "Some description.."></textarea>
+            <h5>Body</h5>
+            <textarea id = "big" type = "text" placeholder = "Some description.."></textarea>
 
-                        <h5>Tags (up to 3)</h5>
-                        <textarea type = "text" placeholder = "#i #don't #know"></textarea>
-                        
-                        <div class = "twoBut">
-                            <button href = "{% url 'new' %}" class = "btn goBtn btn-dark">h'ASK now!</button>
-                            <button href = "{% url 'hot' %}" class = "btn goBtn btn-outline-dark cnlBtn">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+            <h5>Tags (up to 3)</h5>
+            <textarea type = "text" placeholder = "#i #don't #know"></textarea>
+            
+            <div class = "twoBut">
+                <button href = "{% url 'new' %}" class = "btn goBtn btn-dark">h'ASK now!</button>
+                <button href = "{% url 'hot' %}" class = "btn goBtn btn-outline-dark cnlBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
 
 {% endblock content %}
