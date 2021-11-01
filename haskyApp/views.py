@@ -3,22 +3,22 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def index(request):
-    paginator = Paginator(questions, 5)
+def pages(request, type):
+    paginator = Paginator(type, 5)
     page = request.GET.get('page')
     content = paginator.get_page(page)
+    return content
+
+def index(request):
+    content = pages(request, questions)
     return render(request, "index.html", {'questions': content})
 
 def hot(request):
-    paginator = Paginator(questions, 5)
-    page = request.GET.get('page')
-    content = paginator.get_page(page)
+    content = pages(request, questions)
     return render(request, "hot.html", {'questions': content})
 
 def question(request):
-    paginator = Paginator(answers, 5)
-    page = request.GET.get('page')
-    content = paginator.get_page(page)
+    content = pages(request, answers)
     return render(request, "question.html", {'answers': content})
     
 
