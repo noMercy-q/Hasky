@@ -4,7 +4,9 @@
     <div class = "likesDiv">
     <button class = "btn btn-outline-dark">Like!</button>
     
-    <span>{{ answer.likes }}</span>
+    {% if answer.get_likes %}
+        <span> {{ answer.get_likes }}</span>
+    {% endif %}
     </div>
 </div>   
 <div class = "ansText">
@@ -13,7 +15,7 @@
     </p>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" {% if answer.correct %} checked {% endif %}>
         <label class="form-check-label" for="flexCheckDefault">
             It's correct!
         </label>

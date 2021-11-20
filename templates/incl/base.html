@@ -51,21 +51,24 @@
                     <div>
                         <h3>Hot tags</h3>
                         <p class = "hotTags">
-                            <a href = "#" class = "bigTag  ">#hasky</a>
-                            <a href = "#" class = "smallTag  ">#husky</a> 
-                            <a href = "#" class = " ">#programming</a>
-                            <a href = "#" class = "smallTag  ">#computings</a>
-                            <a href = "#" class = "bigTag"> #nginx</a>
+
+                            {% for tag in tags %}
+                                <a href = "{% url 'tags' tag.id %}" class = "smallTag">#{{ tag.name }}</a>
+
+                                
+                                <!--<a href = "#" class = "smallTag  ">#husky</a> 
+                                <a href = "#" class = " ">#programming</a>
+                                <a href = "#" class = "smallTag  ">#computings</a>
+                                <a href = "#" class = "bigTag"> #nginx</a>-->
+                            {% endfor %}
                         </p>
                     </div>
                     <div>
                         <h3>Top 5 users (stop h'asking pls)</h3>
                         <ol class = "topList blackRef2">
-                            <a href = "#" ><li>Maxim Kirillov</li></a>
-                            <a href = "#"><li>Ilya Shluzhas</li></a>
-                            <a href = "#"><li>Dmitry Rudnev</li></a>
-                            <a href = "#" ><li>Dinar Sabitov</li></a>
-                            <a href = "#"><li>Michael Chichunov</li></a>
+                            {% for profile in top_users %}
+                                <a href = "#" ><li>{{ profile.user.username }}</li></a>
+                            {% endfor %}
                         </ol>
                     </div>
                 </div>

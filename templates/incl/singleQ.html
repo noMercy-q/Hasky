@@ -5,16 +5,33 @@
         <div class = "likesDiv">
             <button class = "btn btn-outline-dark">Like!</button>
             
-            <span> {{ question.likes }}</span>
+            {% if question.get_likes %}
+                <span> {{ question.get_likes }}</span>
+            {% endif %}
         </div>
     </div>   
     <div class = "quesText">
-        <a href = "{% url 'question' %}" class = "blackRef"><h5>{{ question.title }}</h5></a>
+        <a href = "{% url 'questions' question.id %}" class = "blackRef"><h5>{{ question.head }}</h5></a>
         <p> {{ question.body }}</p>
 
         <div class = "anTags">
-            <div><a href = "{% url 'question' %}" class = "blackRef2">Answers(3)</a></div>
-            <div>Tags: <a class = "blackRef">#really</a><a class = "blackRef">#why?</a></div>
+            <div><a href = "{% url 'questions' question.id %}" class = "blackRef2">
+            {% if question.get_ans %}
+                Answers({{ question.answers.count }})
+            {% endif %}
+            </a></div>
+            
+            {% if question.get_tags %}
+                <div>Tags: 
+                    {% for tag in question.get_tags %} 
+                        <a class = "blackRef" href = "{% url 'tags' tag.id %}">  
+                        #{{ tag }}
+                        </a>
+                    {% endfor %}
+                
+                </div>
+            {% endif %}
+
         </div>
     </div>
 </div> 

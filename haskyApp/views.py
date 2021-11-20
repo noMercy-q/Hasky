@@ -1,5 +1,7 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render
+from django.views.generic import DetailView
+from .models import Question, Answer, Tag, Profile, QuestionManager
 
 # Create your views here.
 
@@ -10,16 +12,64 @@ def pages(request, type):
     return content
 
 def index(request):
-    content = pages(request, questions)
-    return render(request, "index.html", {'questions': content})
+    new_questions = Question.objects.new()
+    tags = Tag.objects.top_tags()
+    top_users = Profile.objects.top()
+    content = pages(request, new_questions)
+    context = {
+        'questions': content,
+        'tags': tags,
+        'top_users': top_users
+    }
+    return render(request, "index.html", context)
 
 def hot(request):
-    content = pages(request, questions)
-    return render(request, "hot.html", {'questions': content})
+    top_questions = Question.objects.top()
+    tags = Tag.objects.top_tags()
+    top_users = Profile.objects.top()
+    content = pages(request, top_questions)
+    context = {
+        'questions': content,
+        'tags': tags,
+        'top_users': top_users
+    }
+    return render(request, "hot.html", context)
 
-def question(request):
-    content = pages(request, answers)
-    return render(request, "question.html", {'answers': content})
+def question(request, pk):
+    question = Question.objects.get(id = pk)
+    tags = Tag.objects.top_tags()
+    top_answers = Answer.objects.top(pk)
+    top_users = Profile.objects.top()
+    content = pages(request, top_answers)
+    context = {
+        'question': question,
+        'answers': content,
+        'tags': tags,
+        'top_users': top_users
+    }
+    return render(request, "question.html", context)
+
+def tag(request, pk):
+    tag_questions = Question.objects.tag(pk)
+    cur_tag = Tag.objects.get(id = pk)
+    tags = Tag.objects.top_tags()
+    top_users = Profile.objects.top()
+    content = pages(request, tag_questions)
+    context = {
+        'questions': content,
+        'tags': tags,
+        'tag': cur_tag,
+        'top_users': top_users
+    }
+    return render(request, "tag.html", context)
+
+#class one_question(DetailView):
+#   model = Question
+#template_name = "question.html"
+#    context_name = "question"
+#    
+   # extra_context = {'answers': answers}
+
     
 
 def signup(request):
@@ -31,17 +81,26 @@ def login(request):
 def ask(request):
     return render(request, "ask.html", {})
 
-questions = [
-    {
-        "title": f"Question number {i+1}",
-        "body": "A very curious question" + " a very curious question"*30,
-        "likes": f"{(i%2 + 1) + abs(i%5)}"
-    } for i in range (100)
-]
+#questions = [
+#  {
+#       "title": f"Question number {i+1}",
+#        "body": "A very curious question" + " a very curious question"*30,
+#        "likes": f"{(i%2 + 1) + abs(i%5)}"
+#    } for i in range (100)
+#]
+#questions = Question.objects.all()
 
-answers = [
-    {
-        "body": f"A witty answer number {i+1}" + " here you can see a witty answer"*30,
-        "likes": f"{(i%2 + 1) + abs(i%5)}"
-    } for i in range (100)
-]
+#top_questions = Question.objects.top()
+
+
+#top_answers = Answer.objects.top()
+
+
+#cur_question = 
+
+#answers = [
+#    {
+#        "body": f"A witty answer number {i+1}" + " here you can see a witty answer"*30,
+#        "likes": f"{(i%2 + 1) + abs(i%5)}"
+#    } for i in range (100)
+#]

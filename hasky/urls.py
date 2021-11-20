@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
+
+
 from django.urls import path
 
 from haskyApp import views
@@ -23,8 +26,10 @@ urlpatterns = [
     path('', views.index, name = 'new'),
     path('new', views.index, name = 'new'),
     path('hot', views.hot, name = 'hot'),
-    path('question/', views.question, name = 'question'),
+    path('questions/<int:pk>', views.question, name = 'questions'),
     path('signup', views.signup, name = 'signup'),
     path('login', views.login, name = 'login'),
-    path("h'ask", views.ask, name = 'ask')
+    path("h'ask", views.ask, name = 'ask'),
+    path('tags/<int:pk>', views.tag, name = 'tags')
+    #path('questions/<int:pk>', views.one_question.as_view(), name = 'questions')
 ]
