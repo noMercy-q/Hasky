@@ -1,18 +1,27 @@
 {% load static %}
 
 <div class = "question">
-    <div class = "picLikes"><a href = "#"><img src = "{% static 'img/picture.jpg' %}" alt = ""></a>
+    <div class = "picLikes">
+        {% if question.author.avatar %}
+            <img src="{{ question.author.avatar.url }}" class = "avatar">
+        {% endif %}
+
+        <br/>
+        {{ question.author }}
         <div class = "likesDiv">
-            <button class = "btn btn-outline-dark">Like!</button>
+            <button data-id = "{{ question.id }}" data-cont = "question" class = "btn btn-outline-dark vote-up">Like!</button>
             
             {% if question.get_likes %}
                 <span> {{ question.get_likes }}</span>
             {% endif %}
+
+            <button data-id = "{{ question.id }}" data-cont = "question" class = "btn btn-outline-dark vote-down">Dislike!</button>
+
         </div>
     </div>   
     <div class = "quesText">
         <a href = "{% url 'questions' question.id %}" class = "blackRef"><h5>{{ question.head }}</h5></a>
-        <p> {{ question.body }}</p>
+        <p style = "min-height: 70px;"> {{ question.body }}</p>
 
         <div class = "anTags">
             <div><a href = "{% url 'questions' question.id %}" class = "blackRef2">

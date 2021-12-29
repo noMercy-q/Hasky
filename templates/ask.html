@@ -1,13 +1,18 @@
 {% extends "incl/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
 
     <h3>h'ASK a new question</h3>
     <div class = "newQ">
         <h5 class = "">Title</h5>
-        <form>
-            <textarea class = "" type = "text" placeholder = "Your question shortly.."></textarea>
+        <form action = "/h'ask" method = "post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            
+            
+            <!--<textarea class = "" type = "text" placeholder = "Your question shortly.."></textarea>
 
             <h5>Body</h5>
             <textarea id = "big" type = "text" placeholder = "Some description.."></textarea>
@@ -16,9 +21,14 @@
             <textarea type = "text" placeholder = "#i #don't #know"></textarea>
             
             <div class = "twoBut">
-                <button href = "{% url 'new' %}" class = "btn goBtn btn-dark">h'ASK now!</button>
                 <button href = "{% url 'hot' %}" class = "btn goBtn btn-outline-dark cnlBtn">Cancel</button>
+            </div> -->
+            {% buttons %}
+            <div class = "twoBut">
+                <button style = "margin-left: 85%;" class = "btn goBtn btn-dark">h'ASK now!</button>
             </div>
+            {% endbuttons %}
+
         </form>
     </div>
 

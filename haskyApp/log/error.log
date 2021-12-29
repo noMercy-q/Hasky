@@ -1,0 +1,2 @@
+2021/12/29 23:01:06 [error] 9495#9495: *17 open() "/home/nomercy/askme_Kirillov/askme_kirillov/static/css/bootstrap.min.css.map" failed (2: No such file or directory), client: 127.0.0.1, server: askme.com, request: "GET /static/css/bootstrap.min.css.map HTTP/1.1", host: "127.0.0.1"
+2021/12/29 23:05:07 [error] 9495#9495: *25 open() "/home/nomercy/askme_Kirillov/askme_kirillov/static/css/bootstrap.min.css.map" failed (2: No such file or directory), client: 127.0.0.1, server: askme.com, request: "GET /static/css/bootstrap.min.css.map HTTP/1.1", host: "127.0.0.1"

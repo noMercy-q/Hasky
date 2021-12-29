@@ -53,6 +53,7 @@ class Question(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     #likes = models.IntegerField(default=0)
     votes = GenericRelation('Like', related_query_name='questions')
+    #num_votes = models.IntegerField(default=0)
     
 
 
@@ -117,7 +118,7 @@ class ProfileManager(models.Manager):
 
 
 class Profile(models.Model):
-    avatar = models.ImageField(blank = True)
+    avatar = models.ImageField(blank = True, upload_to = "DBimages/")
     user = models.OneToOneField(User, models.CASCADE)
 
     objects = ProfileManager()

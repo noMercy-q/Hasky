@@ -14,14 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
-
-
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.conf.urls.static import static 
 from django.urls import path
-
+from django.views.generic.detail import DetailView
+from hasky.settings import DEBUG
 from haskyApp import views
 
 urlpatterns = [
+    path("logout", views.logout, name="logout"),
+    path('vote/', views.vote, name="Vote"),
+
     path('admin/', admin.site.urls),
     path('', views.index, name = 'new'),
     path('new', views.index, name = 'new'),
@@ -30,6 +34,10 @@ urlpatterns = [
     path('signup', views.signup, name = 'signup'),
     path('login', views.login, name = 'login'),
     path("h'ask", views.ask, name = 'ask'),
-    path('tags/<int:pk>', views.tag, name = 'tags')
+    path('tags/<int:pk>', views.tag, name = 'tags'),
+    path('profile/edit', views.edit, name = 'edit')
     #path('questions/<int:pk>', views.one_question.as_view(), name = 'questions')
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#if DEBUG:
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

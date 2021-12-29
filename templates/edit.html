@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <h3>Create a new account</h3>
+    <h3>Edit profile</h3>
     <div class = "loginDiv">
-        <form action = "/signup" method = "post" enctype="multipart/form-data"> 
+        <form method = "post" enctype="multipart/form-data"> 
             {% csrf_token %}
             <div class="mb-3">
                 {% bootstrap_form form %}
