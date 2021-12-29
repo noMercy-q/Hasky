@@ -4,4 +4,4 @@ venv/
 .idea/
 */settings.py
 hasky/settings.py
-log/*
+*/log/*

@@ -18,3 +18,7 @@
 127.0.0.1 - - [29/Dec/2021:23:05:05 +0300] "GET /haskyApp/DBimages/DBimages/picture1_XBSssX9.jpg HTTP/1.1" 200 142822 "http://127.0.0.1/new" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
 127.0.0.1 - - [29/Dec/2021:23:05:06 +0300] "GET /favicon.ico HTTP/1.1" 404 1215 "http://127.0.0.1/new" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
 127.0.0.1 - - [29/Dec/2021:23:05:07 +0300] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 134 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
+127.0.0.1 - - [29/Dec/2021:23:12:12 +0300] "GET /question.html HTTP/1.1" 502 166 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
+127.0.0.1 - - [29/Dec/2021:23:12:12 +0300] "GET /favicon.ico HTTP/1.1" 502 166 "http://127.0.0.1/question.html" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
+127.0.0.1 - - [29/Dec/2021:23:12:27 +0300] "GET /index.html HTTP/1.1" 502 166 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
+127.0.0.1 - - [29/Dec/2021:23:12:28 +0300] "GET /favicon.ico HTTP/1.1" 502 166 "http://127.0.0.1/index.html" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
