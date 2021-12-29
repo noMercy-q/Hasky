@@ -37,7 +37,8 @@ urlpatterns = [
     path('tags/<int:pk>', views.tag, name = 'tags'),
     path('profile/edit', views.edit, name = 'edit')
     #path('questions/<int:pk>', views.one_question.as_view(), name = 'questions')
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  
+#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #if DEBUG:
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
