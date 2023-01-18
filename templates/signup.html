@@ -1,0 +1,23 @@
+{% extends "incl/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <h3>Create a new account</h3>
+    <div class = "loginDiv">
+        <form action = "/signup" method = "post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            <div class="mb-3">
+                {% bootstrap_form form %}
+
+                {% buttons %}
+                <div class = "twoBut">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+                {% endbuttons %}
+            </div> 
+        </form>
+    </div>
+              
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class = "question">
+    <div class = "picLikes">
+        {% if question.author.avatar %}
+            <img src="{{ question.author.avatar.url }}" class = "avatar">
+        {% endif %}
+
+        <br/>
+        {{ question.author }}
+        <div class = "likesDiv">
+            <button data-id = "{{ question.id }}" data-cont = "question" class = "btn btn-outline-dark vote-up">Like!</button>
+            
+            {% if question.get_likes %}
+                <span> {{ question.get_likes }}</span>
+            {% endif %}
+
+            <button data-id = "{{ question.id }}" data-cont = "question" class = "btn btn-outline-dark vote-down">Dislike!</button>
+
+        </div>
+    </div>   
+    <div class = "quesText">
+        <a href = "{% url 'questions' question.id %}" class = "blackRef"><h5>{{ question.head }}</h5></a>
+        <p style = "min-height: 70px;"> {{ question.body }}</p>
+
+        <div class = "anTags">
+            <div><a href = "{% url 'questions' question.id %}" class = "blackRef2">
+            {% if question.get_ans %}
+                Answers({{ question.answers.count }})
+            {% endif %}
+            </a></div>
+            
+            {% if question.get_tags %}
+                <div>Tags: 
+                    {% for tag in question.get_tags %} 
+                        <a class = "blackRef" href = "{% url 'tags' tag.id %}">  
+                        #{{ tag }}
+                        </a>
+                    {% endfor %}
+                
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,14 @@
+{% extends "incl/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h2 class = "title">#{{ tag.name }}</h2>
+    
+    {% for question in questions %}
+        {% include "incl/singleQ.html" %}
+    {% endfor %}
+
+    {% include 'incl/pagination.html' with content=questions%}
+    
+{% endblock content %}
