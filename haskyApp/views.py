@@ -22,6 +22,7 @@ def pages(request, type):
     content = paginator.get_page(page)
     return content
 
+
 def index(request):
     new_questions = Question.objects.new()
     tags = Tag.objects.top_tags()
@@ -34,6 +35,7 @@ def index(request):
     }
     return render(request, "index.html", context)
 
+
 def hot(request):
     top_questions = Question.objects.top()
     tags = Tag.objects.top_tags()
@@ -45,6 +47,7 @@ def hot(request):
         'top_users': top_users
     }
     return render(request, "hot.html", context)
+
 
 def question(request, pk):
     question = Question.objects.get(id = pk)
@@ -60,11 +63,7 @@ def question(request, pk):
         if form.is_valid():
             new_ans = Answer(body = form.cleaned_data['body'], question_id = pk, author_id = request.user.profile.id)
             new_ans.save()
-            #form = AnswerForm()
-            #return redirect(reverse("?page=1")) ???????????????????
             return redirect("questions", pk = question.id)
-            #return redirect("/questions/" + pk})
-
     context = {
         'question': question,
         'answers': content,
@@ -73,6 +72,7 @@ def question(request, pk):
         'form': form, 
     }
     return render(request, "question.html", context)
+
 
 def tag(request, pk):
     tag_questions = Question.objects.tag(pk)
@@ -88,14 +88,6 @@ def tag(request, pk):
     }
     return render(request, "tag.html", context)
 
-#class one_question(DetailView):
-#   model = Question
-#template_name = "question.html"
-#    context_name = "question"
-#    
-   # extra_context = {'answers': answers}
-
-    
 
 def signup(request):
     tags = Tag.objects.top_tags()
@@ -133,6 +125,7 @@ def signup(request):
     }
     return render(request, "signup.html", context)
 
+
 @login_required
 def edit(request):
     #return render(request, "edit.html")
@@ -156,7 +149,6 @@ def edit(request):
         'form': form
     }
     return render(request, "edit.html", context)
-    
 
     
 def login(request):
@@ -174,7 +166,6 @@ def login(request):
                 form.add_error(None, "Something went wrong! Please check if Caps Lock is off and try again!")
             else:
                 auth.login(request, user)
-                #return redirect("/new")
                 return HttpResponseRedirect(next)
 
     context = {
@@ -184,7 +175,6 @@ def login(request):
         }
     return render(request, "login.html", context)
 
- 
 
 @login_required
 def ask(request):
@@ -219,9 +209,11 @@ def ask(request):
                 return redirect("questions", pk = new_question.id)
     return render(request, "ask.html", {'tags': tags, 'top_users': top_users, 'form': q_form})
 
+
 def logout(request):
     auth.logout(request)
     return redirect(reverse('new'))
+
 
 @login_required
 @require_POST
@@ -242,10 +234,7 @@ def vote(request):
         like = Like(user = request.user.profile, content_object = a, vote = 1)
         like.save()
     return JsonResponse({})
-
-
-
-
+    
 
 def improveTag(str):
     marks = ''' !()-[]{};?@#$%:'"\,./^&;*'''
@@ -254,26 +243,3 @@ def improveTag(str):
         if x in marks:  
             improved = improved.replace(x, "")  
     return improved
-#questions = [
-#  {
-#       "title": f"Question number {i+1}",
-#        "body": "A very curious question" + " a very curious question"*30,
-#        "likes": f"{(i%2 + 1) + abs(i%5)}"
-#    } for i in range (100)
-#]
-#questions = Question.objects.all()
-
-#top_questions = Question.objects.top()
-
-
-#top_answers = Answer.objects.top()
-
-
-#cur_question = 
-
-#answers = [
-#    {
-#        "body": f"A witty answer number {i+1}" + " here you can see a witty answer"*30,
-#        "likes": f"{(i%2 + 1) + abs(i%5)}"
-#    } for i in range (100)
-#]

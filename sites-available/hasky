@@ -6,11 +6,11 @@ server {
 
   # serve static files
   location /static  {
-    root  /home/nomercy/askme_Kirillov/askme_kirillov;
+    root /home/nomercy/askme_Kirillov/askme_kirillov;
 }
 
 location /media  {
-    root    /home/nomercy/askme_Kirillov/askme_kirillov
+    root /home/nomercy/askme_Kirillov/askme_kirillov
 } 
 
   location / {

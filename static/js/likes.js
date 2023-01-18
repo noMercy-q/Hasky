@@ -15,7 +15,6 @@
         return cookieValue;
     }
 
-
     $(".vote-up").on("click", function(ev) {
         console.log("test")
         const $this = $(this)
@@ -35,4 +34,3 @@
             span.innerText = (Number("{{ question.get_likes }}") + 1).toString(10)
         })
     })
-

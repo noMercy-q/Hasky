@@ -7,8 +7,8 @@ from .models import Answer, Question
 
 class LoginForm(forms.Form):
     username = forms.CharField()
-    #email = forms.EmailField()
     password = forms.CharField(widget = forms.PasswordInput)
+
 
 class SignupForm(forms.ModelForm):
     class Meta:
@@ -25,6 +25,7 @@ class SignupForm(forms.ModelForm):
             self.add_error(None, "Passowords do not match!")
         return cdata
 
+
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
@@ -38,18 +39,15 @@ class EditProfileForm(forms.ModelForm):
         user.profile.save()
         return user
 
+
 class QuestionForm(forms.ModelForm):
-    #head = forms.CharField()
-    #body = forms.CharField(widget = forms.Textarea)
-    #tags = forms.CharField()
-    
     class Meta:
         model = Question
         fields = ['head', 'body']
     tags = forms.CharField(required=False)
 
+
 class AnswerForm(forms.ModelForm):
-    
     class Meta:
         model = Answer
         fields = ['body']
